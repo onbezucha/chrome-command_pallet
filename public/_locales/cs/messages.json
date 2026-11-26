@@ -1,0 +1,420 @@
+{
+  "extName": {
+    "message": "Trail"
+  },
+  "extDescription": {
+    "message": "Command panel ve stylu Arc pro Chrome."
+  },
+  "actionTitle": {
+    "message": "Otevřít Command panel"
+  },
+  "cmdOpenBar": {
+    "message": "Otevřít Command panel"
+  },
+  "searchPlaceholder": {
+    "message": "Hledat panely, záložky, historii…"
+  },
+  "filterAll": {
+    "message": "Vše"
+  },
+  "filterTab": {
+    "message": "@panely"
+  },
+  "filterBookmark": {
+    "message": "@záložky"
+  },
+  "filterHistory": {
+    "message": "@historie"
+  },
+  "filterAction": {
+    "message": "@příkazy"
+  },
+  "groupTab": {
+    "message": "Otevřené panely"
+  },
+  "groupBookmark": {
+    "message": "Záložky"
+  },
+  "groupHistory": {
+    "message": "Historie"
+  },
+  "groupAction": {
+    "message": "Příkazy"
+  },
+  "badgeSwitch": {
+    "message": "Přepnout"
+  },
+  "tagAction": {
+    "message": "příkaz"
+  },
+  "footMove": {
+    "message": "pohyb"
+  },
+  "footOpen": {
+    "message": "otevřít"
+  },
+  "footFilter": {
+    "message": "filtr"
+  },
+  "webSearchFor": {
+    "message": "Hledat na webu: $Q$",
+    "placeholders": {
+      "Q": {
+        "content": "$1"
+      }
+    }
+  },
+  "openUrlFor": {
+    "message": "Otevřít $URL$",
+    "placeholders": {
+      "URL": {
+        "content": "$1"
+      }
+    }
+  },
+  "filtersLabel": {
+    "message": "Filtr zdrojů"
+  },
+  "resultsLabel": {
+    "message": "Výsledky"
+  },
+  "dialogLabel": {
+    "message": "Command panel"
+  },
+  "actNewTab": {
+    "message": "Nový panel"
+  },
+  "actCopyUrl": {
+    "message": "Zkopírovat URL aktivního panelu"
+  },
+  "footTyped": {
+    "message": "hledat napsané na webu"
+  },
+  "searchOn": {
+    "message": "Hledat na $E$: $Q$",
+    "placeholders": {
+      "E": {
+        "content": "$1"
+      },
+      "Q": {
+        "content": "$2"
+      }
+    }
+  },
+  "engineHint": {
+    "message": "Napište, co hledat na $E$",
+    "placeholders": {
+      "E": {
+        "content": "$1"
+      }
+    }
+  },
+  "filterClosed": {
+    "message": "@zavřené"
+  },
+  "groupClosed": {
+    "message": "Nedávno zavřené"
+  },
+  "actCloseOthers": {
+    "message": "Zavřít ostatní panely v tomto okně"
+  },
+  "actCloseDuplicates": {
+    "message": "Zavřít duplicitní panely"
+  },
+  "actToNewWindow": {
+    "message": "Přesunout aktivní panel do nového okna"
+  },
+  "flagAudible": {
+    "message": "hraje zvuk"
+  },
+  "flagMuted": {
+    "message": "ztlumeno"
+  },
+  "flagSleeping": {
+    "message": "spí"
+  },
+  "flagPinned": {
+    "message": "připnutý"
+  },
+  "windowN": {
+    "message": "okno $N$",
+    "placeholders": {
+      "N": {
+        "content": "$1"
+      }
+    }
+  },
+  "hintClose": {
+    "message": "zavřít"
+  },
+  "hintPin": {
+    "message": "připnout"
+  },
+  "hintDuplicate": {
+    "message": "duplikovat"
+  },
+  "hintMute": {
+    "message": "ztlumit"
+  },
+  "hintBackground": {
+    "message": "na pozadí"
+  },
+  "openedBg": {
+    "message": "otevřeno na pozadí"
+  },
+  "tabCloseLabel": {
+    "message": "Zavřít panel"
+  },
+  "optTitle": {
+    "message": "Nastavení – Chrome: Command panel"
+  },
+  "optSaved": {
+    "message": "Uloženo"
+  },
+  "optSources": {
+    "message": "Zdroje výsledků"
+  },
+  "optSourcesHint": {
+    "message": "Co se v Command panelu hledá."
+  },
+  "srcTab": {
+    "message": "Otevřené panely"
+  },
+  "srcBookmark": {
+    "message": "Záložky"
+  },
+  "srcClosed": {
+    "message": "Nedávno zavřené panely"
+  },
+  "srcHistory": {
+    "message": "Historie"
+  },
+  "srcAction": {
+    "message": "Příkazy"
+  },
+  "optHistory": {
+    "message": "Historie"
+  },
+  "optHistoryDays": {
+    "message": "Historie za posledních (dní)"
+  },
+  "optHistoryMax": {
+    "message": "Max. počet položek historie"
+  },
+  "optBehavior": {
+    "message": "Chování"
+  },
+  "optPrefill": {
+    "message": "Předvyplnit hledání textem označeným na stránce"
+  },
+  "optClipboard": {
+    "message": "Nabídnout URL ze schránky, když je panel prázdný"
+  },
+  "optSwitch": {
+    "message": "Otevřít URL, která už je otevřená, přepnutím na existující panel"
+  },
+  "optQuick": {
+    "message": "Kalkulačka, převody, datum a čas a nástroje (UUID, kódování, JSON, barva, časovač)"
+  },
+  "optCalc": {
+    "message": "Kalkulačka a převody"
+  },
+  "optVat": {
+    "message": "Sazba DPH (%)"
+  },
+  "optBaseCur": {
+    "message": "Základní měna (3 písmena)"
+  },
+  "optLive": {
+    "message": "Aktuální kurzy z ČNB"
+  },
+  "optLiveHint": {
+    "message": "Jednou za 6 hodin stáhne denní kurzy z cnb.cz. Vyžaduje povolení přístupu k cnb.cz, bez něj se použijí orientační kurzy a nic se neposílá po síti."
+  },
+  "optLiveDenied": {
+    "message": "Přístup k cnb.cz nebyl povolen."
+  },
+  "optEngines": {
+    "message": "Vyhledávače"
+  },
+  "optEnginesHint": {
+    "message": "Napište @zkratka a text, třeba @yt kočky. V adrese použijte %s místo hledaného textu."
+  },
+  "optEngName": {
+    "message": "Název"
+  },
+  "optEngAliases": {
+    "message": "Zkratky (oddělené čárkou)"
+  },
+  "optEngUrl": {
+    "message": "Adresa s %s"
+  },
+  "optEngAdd": {
+    "message": "Přidat vyhledávač"
+  },
+  "optEngReset": {
+    "message": "Obnovit výchozí vyhledávače"
+  },
+  "optEngRemove": {
+    "message": "Odebrat"
+  },
+  "optEngInvalid": {
+    "message": "Červený řádek se neuloží: chybí název, zkratka nebo adresa http(s) s %s."
+  },
+  "optDefaultEngine": {
+    "message": "Výchozí vyhledávač (Cmd/Ctrl+Enter a řádek „hledat napsané“)"
+  },
+  "optReset": {
+    "message": "Obnovit všechna nastavení"
+  },
+  "ratesStatic": {
+    "message": "orientační kurz"
+  },
+  "ratesCnb": {
+    "message": "kurz ČNB $PL1$",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "clipOpen": {
+    "message": "Otevřít URL ze schránky"
+  },
+  "groupCalc": {
+    "message": "Výpočet"
+  },
+  "footCopy": {
+    "message": "zkopírovat"
+  },
+  "footRun": {
+    "message": "spustit"
+  },
+  "actOpenSettings": {
+    "message": "Otevřít nastavení"
+  },
+  "vatWith": {
+    "message": "s DPH $PL2$ % (z $PL1$ bez DPH)",
+    "placeholders": {
+      "PL2": {
+        "content": "$2"
+      },
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "vatWithout": {
+    "message": "bez DPH $PL2$ % (z $PL1$ s DPH)",
+    "placeholders": {
+      "PL2": {
+        "content": "$2"
+      },
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dtToday": {
+    "message": "dnes"
+  },
+  "dtIn": {
+    "message": "za $PL1$ d.",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dtAgo": {
+    "message": "před $PL1$ d.",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dtWeeks": {
+    "message": "týd."
+  },
+  "dtDays": {
+    "message": "dní"
+  },
+  "dtWeek": {
+    "message": "týden $PL1$",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "timerStart": {
+    "message": "Spustit časovač: $PL1$",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "timerCancel": {
+    "message": "Zrušit časovač: $PL1$",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "timerRings": {
+    "message": "zazní v $PL1$",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "timerInvalid": {
+    "message": "Neplatná doba časovače"
+  },
+  "timerExample": {
+    "message": "Například: timer 25 min (minimum 30 s)"
+  },
+  "timerDoneTitle": {
+    "message": "Časovač doběhl"
+  },
+  "colorPick": {
+    "message": "Vybrat barvu z obrazovky"
+  },
+  "colorPickHint": {
+    "message": "Pipeta, hodnota se zkopíruje"
+  },
+  "toolNoInput": {
+    "message": "Není co zpracovat"
+  },
+  "toolNoInputHint": {
+    "message": "Napište text za příkaz nebo ho zkopírujte do schránky"
+  },
+  "toolUrlEncoded": {
+    "message": "URL zakódováno"
+  },
+  "toolUrlDecoded": {
+    "message": "URL dekódováno"
+  },
+  "toolB64Encoded": {
+    "message": "Base64 zakódováno"
+  },
+  "toolB64Decoded": {
+    "message": "Base64 dekódováno"
+  },
+  "toolDecodeFailed": {
+    "message": "Dekódování se nepodařilo"
+  },
+  "toolJsonPretty": {
+    "message": "JSON formátovaný"
+  },
+  "toolJsonMin": {
+    "message": "JSON minifikovaný"
+  },
+  "toolJsonInvalid": {
+    "message": "Neplatný JSON"
+  }
+}

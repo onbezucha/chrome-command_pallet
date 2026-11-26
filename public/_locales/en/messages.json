@@ -1,0 +1,420 @@
+{
+  "extName": {
+    "message": "Trail"
+  },
+  "extDescription": {
+    "message": "Arc-style Command panel for Chrome."
+  },
+  "actionTitle": {
+    "message": "Open Command panel"
+  },
+  "cmdOpenBar": {
+    "message": "Open Command panel"
+  },
+  "searchPlaceholder": {
+    "message": "Search tabs, bookmarks, history…"
+  },
+  "filterAll": {
+    "message": "All"
+  },
+  "filterTab": {
+    "message": "@tabs"
+  },
+  "filterBookmark": {
+    "message": "@bookmarks"
+  },
+  "filterHistory": {
+    "message": "@history"
+  },
+  "filterAction": {
+    "message": "@actions"
+  },
+  "groupTab": {
+    "message": "Open tabs"
+  },
+  "groupBookmark": {
+    "message": "Bookmarks"
+  },
+  "groupHistory": {
+    "message": "History"
+  },
+  "groupAction": {
+    "message": "Actions"
+  },
+  "badgeSwitch": {
+    "message": "Switch"
+  },
+  "tagAction": {
+    "message": "action"
+  },
+  "footMove": {
+    "message": "move"
+  },
+  "footOpen": {
+    "message": "open"
+  },
+  "footFilter": {
+    "message": "filter"
+  },
+  "webSearchFor": {
+    "message": "Search the web: $Q$",
+    "placeholders": {
+      "Q": {
+        "content": "$1"
+      }
+    }
+  },
+  "openUrlFor": {
+    "message": "Open $URL$",
+    "placeholders": {
+      "URL": {
+        "content": "$1"
+      }
+    }
+  },
+  "filtersLabel": {
+    "message": "Source filter"
+  },
+  "resultsLabel": {
+    "message": "Results"
+  },
+  "dialogLabel": {
+    "message": "Command panel"
+  },
+  "actNewTab": {
+    "message": "New tab"
+  },
+  "actCopyUrl": {
+    "message": "Copy URL of the active tab"
+  },
+  "footTyped": {
+    "message": "search what you typed"
+  },
+  "searchOn": {
+    "message": "Search $E$: $Q$",
+    "placeholders": {
+      "E": {
+        "content": "$1"
+      },
+      "Q": {
+        "content": "$2"
+      }
+    }
+  },
+  "engineHint": {
+    "message": "Type what to search on $E$",
+    "placeholders": {
+      "E": {
+        "content": "$1"
+      }
+    }
+  },
+  "filterClosed": {
+    "message": "@closed"
+  },
+  "groupClosed": {
+    "message": "Recently closed"
+  },
+  "actCloseOthers": {
+    "message": "Close other tabs in this window"
+  },
+  "actCloseDuplicates": {
+    "message": "Close duplicate tabs"
+  },
+  "actToNewWindow": {
+    "message": "Move active tab to a new window"
+  },
+  "flagAudible": {
+    "message": "playing audio"
+  },
+  "flagMuted": {
+    "message": "muted"
+  },
+  "flagSleeping": {
+    "message": "sleeping"
+  },
+  "flagPinned": {
+    "message": "pinned"
+  },
+  "windowN": {
+    "message": "window $N$",
+    "placeholders": {
+      "N": {
+        "content": "$1"
+      }
+    }
+  },
+  "hintClose": {
+    "message": "close"
+  },
+  "hintPin": {
+    "message": "pin"
+  },
+  "hintDuplicate": {
+    "message": "duplicate"
+  },
+  "hintMute": {
+    "message": "mute"
+  },
+  "hintBackground": {
+    "message": "in background"
+  },
+  "openedBg": {
+    "message": "opened in background"
+  },
+  "tabCloseLabel": {
+    "message": "Close tab"
+  },
+  "optTitle": {
+    "message": "Settings – Chrome: Command panel"
+  },
+  "optSaved": {
+    "message": "Saved"
+  },
+  "optSources": {
+    "message": "Result sources"
+  },
+  "optSourcesHint": {
+    "message": "What the Command panel searches."
+  },
+  "srcTab": {
+    "message": "Open tabs"
+  },
+  "srcBookmark": {
+    "message": "Bookmarks"
+  },
+  "srcClosed": {
+    "message": "Recently closed tabs"
+  },
+  "srcHistory": {
+    "message": "History"
+  },
+  "srcAction": {
+    "message": "Actions"
+  },
+  "optHistory": {
+    "message": "History"
+  },
+  "optHistoryDays": {
+    "message": "History for the last (days)"
+  },
+  "optHistoryMax": {
+    "message": "Max. number of history items"
+  },
+  "optBehavior": {
+    "message": "Behavior"
+  },
+  "optPrefill": {
+    "message": "Prefill the search with text selected on the page"
+  },
+  "optClipboard": {
+    "message": "Offer the URL from the clipboard when the panel is empty"
+  },
+  "optSwitch": {
+    "message": "Opening a URL that is already open switches to the existing tab"
+  },
+  "optQuick": {
+    "message": "Calculator, conversions, date and time, and tools (UUID, encoding, JSON, color, timer)"
+  },
+  "optCalc": {
+    "message": "Calculator and conversions"
+  },
+  "optVat": {
+    "message": "VAT rate (%)"
+  },
+  "optBaseCur": {
+    "message": "Base currency (3 letters)"
+  },
+  "optLive": {
+    "message": "Live exchange rates from the Czech National Bank"
+  },
+  "optLiveHint": {
+    "message": "Downloads daily rates from cnb.cz every 6 hours. Requires access to cnb.cz; without it approximate built-in rates are used and nothing is sent over the network."
+  },
+  "optLiveDenied": {
+    "message": "Access to cnb.cz was not granted."
+  },
+  "optEngines": {
+    "message": "Search engines"
+  },
+  "optEnginesHint": {
+    "message": "Type @shortcut and text, e.g. @yt cats. Use %s in the URL where the search text goes."
+  },
+  "optEngName": {
+    "message": "Name"
+  },
+  "optEngAliases": {
+    "message": "Shortcuts (comma separated)"
+  },
+  "optEngUrl": {
+    "message": "URL with %s"
+  },
+  "optEngAdd": {
+    "message": "Add search engine"
+  },
+  "optEngReset": {
+    "message": "Restore default engines"
+  },
+  "optEngRemove": {
+    "message": "Remove"
+  },
+  "optEngInvalid": {
+    "message": "Red rows are not saved: a name, shortcut or http(s) URL with %s is missing."
+  },
+  "optDefaultEngine": {
+    "message": "Default search engine (Cmd/Ctrl+Enter and the \"search what you typed\" row)"
+  },
+  "optReset": {
+    "message": "Restore all settings"
+  },
+  "ratesStatic": {
+    "message": "approximate rate"
+  },
+  "ratesCnb": {
+    "message": "CNB rate $PL1$",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "clipOpen": {
+    "message": "Open URL from clipboard"
+  },
+  "groupCalc": {
+    "message": "Result"
+  },
+  "footCopy": {
+    "message": "copy"
+  },
+  "footRun": {
+    "message": "run"
+  },
+  "actOpenSettings": {
+    "message": "Open settings"
+  },
+  "vatWith": {
+    "message": "with $PL2$% VAT (from $PL1$ excl. VAT)",
+    "placeholders": {
+      "PL2": {
+        "content": "$2"
+      },
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "vatWithout": {
+    "message": "without $PL2$% VAT (from $PL1$ incl. VAT)",
+    "placeholders": {
+      "PL2": {
+        "content": "$2"
+      },
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dtToday": {
+    "message": "today"
+  },
+  "dtIn": {
+    "message": "in $PL1$ d",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dtAgo": {
+    "message": "$PL1$ d ago",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "dtWeeks": {
+    "message": "wk"
+  },
+  "dtDays": {
+    "message": "days"
+  },
+  "dtWeek": {
+    "message": "week $PL1$",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "timerStart": {
+    "message": "Start timer: $PL1$",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "timerCancel": {
+    "message": "Cancel timer: $PL1$",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "timerRings": {
+    "message": "rings at $PL1$",
+    "placeholders": {
+      "PL1": {
+        "content": "$1"
+      }
+    }
+  },
+  "timerInvalid": {
+    "message": "Invalid timer duration"
+  },
+  "timerExample": {
+    "message": "For example: timer 25 min (minimum 30 s)"
+  },
+  "timerDoneTitle": {
+    "message": "Timer finished"
+  },
+  "colorPick": {
+    "message": "Pick a color from the screen"
+  },
+  "colorPickHint": {
+    "message": "Eyedropper, the value is copied"
+  },
+  "toolNoInput": {
+    "message": "Nothing to process"
+  },
+  "toolNoInputHint": {
+    "message": "Type text after the command or copy it to the clipboard"
+  },
+  "toolUrlEncoded": {
+    "message": "URL encoded"
+  },
+  "toolUrlDecoded": {
+    "message": "URL decoded"
+  },
+  "toolB64Encoded": {
+    "message": "Base64 encoded"
+  },
+  "toolB64Decoded": {
+    "message": "Base64 decoded"
+  },
+  "toolDecodeFailed": {
+    "message": "Decoding failed"
+  },
+  "toolJsonPretty": {
+    "message": "JSON formatted"
+  },
+  "toolJsonMin": {
+    "message": "JSON minified"
+  },
+  "toolJsonInvalid": {
+    "message": "Invalid JSON"
+  }
+}
