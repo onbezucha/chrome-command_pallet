@@ -6,7 +6,6 @@ import { listTimers } from './timers'
 
 const DAY = 86_400_000
 const FRESH_MS = 5_000
-const STALE_MS = 60_000
 
 const msg = (k: string) => chrome.i18n.getMessage(k) || k
 const msgSub = (k: string, sub: string) => chrome.i18n.getMessage(k, [sub]) || k
@@ -135,6 +134,15 @@ async function refreshCache(settings: Settings) {
   return cache
 }
 
+/** Předehřátí cache při startu prohlížeče/workeru, aby první otevření nečekalo. */
+export async function warmCache(): Promise<void> {
+  try {
+    await refreshCache(await loadSettings())
+  } catch (err) {
+    console.debug('[trail] předehřátí cache selhalo', err)
+  }
+}
+
 function buildActions(): ResultItem[] {
   const actions: ResultItem[] = [
     {
@@ -191,9 +199,11 @@ export async function buildIndex(): Promise<IndexData> {
   const [session, settings] = await Promise.all([getSession(), loadSettings()])
   let cache = session.cache
   const age = cache ? Date.now() - cache.at : Infinity
-  if (!cache || cache.key !== cacheKey(settings) || age > STALE_MS) {
+  if (!cache || cache.key !== cacheKey(settings)) {
+    // jediný případ, kdy se čeká: žádná použitelná cache
     cache = await refreshCache(settings)
   } else if (age > FRESH_MS) {
+    // i zastaralá cache se vrátí hned, obnovuje se na pozadí
     void refreshCache(settings)
   }
 

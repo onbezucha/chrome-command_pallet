@@ -1,5 +1,5 @@
 import type { Request } from '../shared/messages'
-import { buildIndex } from './indexCache'
+import { buildIndex, warmCache } from './indexCache'
 import { handleCommand, openCommandBar, openItem, runAction } from './commands'
 import { refreshRates } from './rates'
 import { patchSession } from './session'
@@ -48,4 +48,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
 // Po instalaci/aktualizaci vyčistit zastaralý stav.
 chrome.runtime.onInstalled.addListener(async () => {
   await patchSession({ cache: undefined })
+  await warmCache()
 })
+
+chrome.runtime.onStartup.addListener(() => void warmCache())

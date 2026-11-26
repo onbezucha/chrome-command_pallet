@@ -251,6 +251,21 @@ export function CommandBar({ index, mode, onClose, onReady, initialQuery }: Prop
     if (input && input.value) input.setSelectionRange(0, 0)
     // dvě animační smyčky = první skutečné vykreslení
     requestAnimationFrame(() => requestAnimationFrame(() => onReady?.()))
+
+    // Stránka může fokus držet nebo si ho po vložení overlaye vzít zpět:
+    // několik pokusů o zaostření, dokud pole fokus skutečně nemá.
+    let tries = 0
+    const timer = window.setInterval(() => {
+      const el = inputRef.current
+      const root = el?.getRootNode() as ShadowRoot | Document | undefined
+      if (!el || ++tries > 10 || root?.activeElement === el) {
+        window.clearInterval(timer)
+        return
+      }
+      window.focus()
+      el.focus({ preventScroll: true })
+    }, 50)
+    return () => window.clearInterval(timer)
   }, [])
 
   useEffect(() => setSel(0), [parsed.text, filter, engine])
