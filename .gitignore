@@ -4,3 +4,10 @@ dist
 .DS_Store
 .vite
 .claude/settings.local.json
+*.pem
+*.crx
+*.zip
+.env
+.env.*
+coverage
+*.tsbuildinfo
