@@ -49,7 +49,10 @@ async function openPopupFallback(windowId?: number) {
 }
 
 export async function openCommandBar(): Promise<void> {
-  const [tab] = await chrome.tabs.query({ active: true, lastFocusedWindow: true })
+  const [tab] = await chrome.tabs.query({
+    active: true,
+    lastFocusedWindow: true,
+  })
   await patchSession({
     invoker: { tabId: tab?.id, windowId: tab?.windowId, url: tab?.url },
     invokedAt: Date.now(),
@@ -67,7 +70,10 @@ export async function openCommandBar(): Promise<void> {
     }
     // 2) vložit (první vložení overlay samo otevře)
     try {
-      await chrome.scripting.executeScript({ target: { tabId: tab.id }, files: [overlayScript] })
+      await chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        files: [overlayScript],
+      })
       return
     } catch {
       /* např. file:// bez povolení, stránka s omezením → popup */
@@ -140,7 +146,8 @@ export async function openItem(item: ResultItem, background = false): Promise<vo
     if (item.windowId !== undefined) await chrome.windows.update(item.windowId, { focused: true })
     return
   }
-  if (item.kind === 'closed' && item.sessionId) {
+  // restore otevírá vždy aktivní panel; na pozadí se proto otevře obyčejná karta s URL
+  if (item.kind === 'closed' && item.sessionId && !(background && item.url)) {
     if (item.url && (await switchToExisting(item.url, background))) return
     await chrome.sessions.restore(item.sessionId)
     return
@@ -149,7 +156,11 @@ export async function openItem(item: ResultItem, background = false): Promise<vo
   if (await switchToExisting(item.url, background)) return
   const { invoker } = await getSession()
   try {
-    await chrome.tabs.create({ url: item.url, windowId: invoker?.windowId, active: !background })
+    await chrome.tabs.create({
+      url: item.url,
+      windowId: invoker?.windowId,
+      active: !background,
+    })
     // Z fallback popupu je fokusované jeho okno; cílové okno musí dostat fokus.
     if (!background && invoker?.windowId !== undefined) {
       await chrome.windows.update(invoker.windowId, { focused: true })

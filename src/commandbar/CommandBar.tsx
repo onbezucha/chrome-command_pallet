@@ -231,7 +231,10 @@ export function CommandBar({ index, mode, onClose, onReady, initialQuery }: Prop
     const text = parsed.text.trim()
     if (!text) return null
     if (engine) {
-      return { url: engineUrl(engine, text), label: t('searchOn', engine.name, text) }
+      return {
+        url: engineUrl(engine, text),
+        label: t('searchOn', engine.name, text),
+      }
     }
     const fb = resolveFallback(text)
     return fb.kind === 'url'
@@ -269,6 +272,8 @@ export function CommandBar({ index, mode, onClose, onReady, initialQuery }: Prop
   }, [])
 
   useEffect(() => setSel(0), [parsed.text, filter, engine])
+  // po akci nad panelem (zavření) může výběr ukazovat za konec seznamu
+  useEffect(() => setSel((s) => Math.min(s, Math.max(0, total - 1))), [total])
 
   useEffect(() => {
     listRef.current?.querySelector('[aria-selected="true"]')?.scrollIntoView({ block: 'nearest' })
@@ -320,7 +325,9 @@ export function CommandBar({ index, mode, onClose, onReady, initialQuery }: Prop
       })
     } else if (run.type === 'color-pick') {
       const Picker = (
-        window as unknown as { EyeDropper?: new () => { open(): Promise<{ sRGBHex: string }> } }
+        window as unknown as {
+          EyeDropper?: new () => { open(): Promise<{ sRGBHex: string }> }
+        }
       ).EyeDropper
       if (!Picker) return
       try {

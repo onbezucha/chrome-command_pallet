@@ -136,8 +136,15 @@ describe('nástroje', () => {
     expect(r.map((x) => x.copy)).toEqual(['#0bbbef', 'rgb(11, 187, 239)', 'hsl(194, 91%, 49%)'])
     expect(quickResults('rgb(255,0,0)', ctx())[0]?.copy).toBe('#ff0000')
   })
+  it('slova z hex písmen nejsou barva', () => {
+    expect(quickResults('facade', ctx())).toEqual([])
+    expect(quickResults('decade', ctx())).toEqual([])
+    expect(quickResults('#fff', ctx())[0]?.copy).toBe('#ffffff')
+  })
   it('pipeta je akce', () => {
-    expect(quickResults('barva', ctx())[0]?.run).toEqual({ type: 'color-pick' })
+    expect(quickResults('barva', ctx())[0]?.run).toEqual({
+      type: 'color-pick',
+    })
   })
   it('časovač: start a neplatný vstup', () => {
     expect(quickResults('timer 25 min', ctx())[0]?.run).toEqual({

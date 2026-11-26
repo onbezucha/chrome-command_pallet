@@ -49,16 +49,30 @@ function tokenize(src: string): Tok[] | null {
 }
 
 /**
+ * Sjednotí desetinný oddělovač na tečku. Když jsou v zápisu obě, poslední je desetinný
+ * (`1,000.50` i `1.000,50`); samotná čárka je desetinná (`1,5`).
+ */
+function decimalSeparators(s: string): string {
+  const comma = s.lastIndexOf(',')
+  const dot = s.lastIndexOf('.')
+  if (comma >= 0 && dot >= 0) {
+    return dot > comma ? s.replace(/,/g, '') : s.replace(/\./g, '').replace(/,/g, '.')
+  }
+  return s.replace(/,/g, '.')
+}
+
+/**
  * Bezpečný vyhodnocovač výrazů (žádné `eval`): + − * / ^ % závorky, sqrt/abs/round/floor/ceil, pi, e.
  * Desetinná čárka i tečka, `×` `÷`. `100 + 10%` = 110 (procento se počítá z levé strany).
  * Bez `allowPlain` vrací null pro holé číslo, aby se nezobrazoval výsledek u každého čísla.
  */
 export function evaluate(input: string, opts: { allowPlain?: boolean } = {}): number | null {
-  const src = input
-    .replace(/(\d)[\s ](?=\d{3}(?!\d))/g, '$1')
-    .replace(/[×·]/g, '*')
-    .replace(/÷/g, '/')
-    .replace(/,/g, '.')
+  const src = decimalSeparators(
+    input
+      .replace(/(\d)[\s ](?=\d{3}(?!\d))/g, '$1')
+      .replace(/[×·]/g, '*')
+      .replace(/÷/g, '/'),
+  )
   const toks = tokenize(src)
   if (!toks || !toks.length) return null
 
@@ -108,6 +122,17 @@ export function evaluate(input: string, opts: { allowPlain?: boolean } = {}): nu
     return val
   }
 
+  // `^` je silnější než unární mínus (`-2^2` = −4) a je pravě asociativní; exponent smí mít znaménko.
+  function power(): Val {
+    const base = postfix()
+    if (isOp('^')) {
+      pos++
+      complex = true
+      return { v: base.v ** unary().v }
+    }
+    return base
+  }
+
   function unary(): Val {
     if (isOp('-')) {
       pos++
@@ -118,25 +143,15 @@ export function evaluate(input: string, opts: { allowPlain?: boolean } = {}): nu
       pos++
       return unary()
     }
-    return postfix()
-  }
-
-  function factor(): Val {
-    const base = unary()
-    if (isOp('^')) {
-      pos++
-      complex = true
-      return { v: base.v ** factor().v }
-    }
-    return base
+    return power()
   }
 
   function term(): Val {
-    let left = factor()
+    let left = unary()
     while (isOp('*') || isOp('/')) {
       const op = (toks![pos++] as { v: string }).v
       complex = true
-      const right = factor()
+      const right = unary()
       left = { v: op === '*' ? left.v * right.v : left.v / right.v }
     }
     return left

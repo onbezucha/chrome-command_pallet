@@ -130,7 +130,12 @@ const cacheKey = (s: Settings) => `${s.historyDays}:${s.historyMax}`
 async function refreshCache(settings: Settings) {
   const [bookmarks, history] = await Promise.all([loadBookmarks(), loadHistory(settings)])
   const cache = { at: Date.now(), key: cacheKey(settings), bookmarks, history }
-  await patchSession({ cache })
+  try {
+    await patchSession({ cache })
+  } catch (err) {
+    // např. překročená kvóta storage.session: index funguje i bez uložené cache
+    console.debug('[trail] cache se nepodařilo uložit', err)
+  }
   return cache
 }
 

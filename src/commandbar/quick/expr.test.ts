@@ -41,4 +41,14 @@ describe('evaluate', () => {
     expect(evaluate('alert(1)')).toBeNull()
     expect(evaluate('2 $ 3')).toBeNull()
   })
+  it('unární mínus je slabší než mocnina', () => {
+    expect(evaluate('-2^2')).toBe(-4)
+    expect(evaluate('2^-1')).toBe(0.5)
+    expect(evaluate('2^3^2')).toBe(512)
+  })
+  it('oddělovače tisíců a desetin', () => {
+    expect(evaluate('1,000.50+1')).toBe(1001.5)
+    expect(evaluate('1.000,50+1')).toBe(1001.5)
+    expect(evaluate('1,5+1')).toBe(2.5)
+  })
 })

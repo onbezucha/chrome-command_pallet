@@ -57,7 +57,8 @@ const toHex = (r: number, g: number, b: number) =>
 function colors(raw: string): QuickResult[] {
   const s = raw.trim()
   let rgb: [number, number, number] | null = null
-  if (/^#?[0-9a-f]{3}$|^#?[0-9a-f]{6}$/i.test(s) && (s.startsWith('#') || /[a-f]/i.test(s))) {
+  // hex jen s `#`, jinak by se slova jako `facade` nebo `decade` braly jako barva
+  if (/^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i.test(s)) {
     rgb = hexToRgb(s)
   } else {
     const m = /^rgb\(\s*(\d{1,3})\s*[, ]\s*(\d{1,3})\s*[, ]\s*(\d{1,3})\s*\)$/i.exec(s)
@@ -71,8 +72,16 @@ function colors(raw: string): QuickResult[] {
   const hex = toHex(r, g, b)
   return [
     { title: hex, subtitle: 'HEX', copy: hex },
-    { title: `rgb(${r}, ${g}, ${b})`, subtitle: 'RGB', copy: `rgb(${r}, ${g}, ${b})` },
-    { title: `hsl(${h}, ${sat}%, ${l}%)`, subtitle: 'HSL', copy: `hsl(${h}, ${sat}%, ${l}%)` },
+    {
+      title: `rgb(${r}, ${g}, ${b})`,
+      subtitle: 'RGB',
+      copy: `rgb(${r}, ${g}, ${b})`,
+    },
+    {
+      title: `hsl(${h}, ${sat}%, ${l}%)`,
+      subtitle: 'HSL',
+      copy: `hsl(${h}, ${sat}%, ${l}%)`,
+    },
   ]
 }
 
@@ -155,7 +164,13 @@ export function tools(raw: string, ctx: QuickCtx): QuickResult[] {
   }
 
   if (/^(barva|color|colour|pipeta|eyedropper)$/.test(n)) {
-    return [{ title: t('colorPick'), subtitle: t('colorPickHint'), run: { type: 'color-pick' } }]
+    return [
+      {
+        title: t('colorPick'),
+        subtitle: t('colorPickHint'),
+        run: { type: 'color-pick' },
+      },
+    ]
   }
   const col = colors(q)
   if (col.length) return col
@@ -226,7 +241,12 @@ export function tools(raw: string, ctx: QuickCtx): QuickResult[] {
         { title: oneLine(min), subtitle: t('toolJsonMin'), copy: min },
       ]
     } catch (e) {
-      return [{ title: t('toolJsonInvalid'), subtitle: oneLine(String((e as Error).message), 100) }]
+      return [
+        {
+          title: t('toolJsonInvalid'),
+          subtitle: oneLine(String((e as Error).message), 100),
+        },
+      ]
     }
   }
   return []

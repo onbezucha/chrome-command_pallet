@@ -12,7 +12,7 @@ odstraněny.
 ## 2. Tech stack
 
 Vite + `@crxjs/vite-plugin`, TypeScript (strict), Preact, čisté CSS s proměnnými, `fuse.js`,
-Vitest, ESLint + Prettier. Žádný backend ani síťové požadavky.
+Vitest, ESLint + Prettier. Žádný backend; jediný síťový požadavek je volitelný denní kurz ČNB (vypnuto ve výchozím stavu).
 
 ## 3. Oprávnění
 
@@ -67,13 +67,13 @@ min. 4.5:1, `role="dialog"`.
 
 ## 7. Rizika
 
-| Riziko                                               | Mitigace                                                          |
-| ---------------------------------------------------- | ----------------------------------------------------------------- |
-| Overlay ztrácí fokus/klávesy na reálných stránkách   | capture-phase klávesy, explicitní fokus, popup fallback           |
-| Pomalý start (SW wake + executeScript + historie)    | cache záložek a historie v `storage.session`, okamžité vykreslení |
-| `Alt+K` koliduje s webem nebo jiným rozšířením       | zkratka je změnitelná v nastavení zkratek                         |
-| Chrome si pamatuje dříve přiřazené zkratky           | po změně výchozí ručně nastavit                                   |
-| Mocky skrývají chování Chromu                        | ruční test v reálném Chromu                                       |
+| Riziko                                             | Mitigace                                                          |
+| -------------------------------------------------- | ----------------------------------------------------------------- |
+| Overlay ztrácí fokus/klávesy na reálných stránkách | capture-phase klávesy, explicitní fokus, popup fallback           |
+| Pomalý start (SW wake + executeScript + historie)  | cache záložek a historie v `storage.session`, okamžité vykreslení |
+| `Alt+K` koliduje s webem nebo jiným rozšířením     | zkratka je změnitelná v nastavení zkratek                         |
+| Chrome si pamatuje dříve přiřazené zkratky         | po změně výchozí ručně nastavit                                   |
+| Mocky skrývají chování Chromu                      | ruční test v reálném Chromu                                       |
 
 **Výsledky ověření:** _neověřeno v reálném Chromu_ – build, lint a unit testy procházejí.
 

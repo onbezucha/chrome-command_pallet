@@ -9,7 +9,10 @@ describe('resolveFallback', () => {
     })
   })
   it('doplní https u domény', () => {
-    expect(resolveFallback('etnetera.cz')).toEqual({ kind: 'url', url: 'https://etnetera.cz' })
+    expect(resolveFallback('etnetera.cz')).toEqual({
+      kind: 'url',
+      url: 'https://etnetera.cz',
+    })
     expect(resolveFallback('activate.etnetera.cz/sluzby')).toEqual({
       kind: 'url',
       url: 'https://activate.etnetera.cz/sluzby',
@@ -25,6 +28,23 @@ describe('resolveFallback', () => {
       text: 'jak nastavit ga4',
     })
     expect(resolveFallback('ga4')).toEqual({ kind: 'search', text: 'ga4' })
-    expect(resolveFallback('foo. bar')).toEqual({ kind: 'search', text: 'foo. bar' })
+    expect(resolveFallback('foo. bar')).toEqual({
+      kind: 'search',
+      text: 'foo. bar',
+    })
+  })
+  it('názvy souborů nejsou weby', () => {
+    expect(resolveFallback('README.md')).toEqual({
+      kind: 'search',
+      text: 'README.md',
+    })
+    expect(resolveFallback('index.js')).toEqual({
+      kind: 'search',
+      text: 'index.js',
+    })
+    expect(resolveFallback('example.com')).toEqual({
+      kind: 'url',
+      url: 'https://example.com',
+    })
   })
 })

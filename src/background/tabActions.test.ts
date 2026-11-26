@@ -10,13 +10,19 @@ describe('findDuplicateTabIds', () => {
     ])
     expect(ids).toEqual([2])
   })
-  it('ignoruje #hash a koncové lomítko', () => {
+  it('ignoruje koncové lomítko, ale #hash rozlišuje', () => {
     expect(
       findDuplicateTabIds([
         { id: 1, url: 'https://a.cz/' },
-        { id: 2, url: 'https://a.cz#sekce' },
+        { id: 2, url: 'https://a.cz' },
       ]),
     ).toEqual([2])
+    expect(
+      findDuplicateTabIds([
+        { id: 1, url: 'https://mail.example.com/#inbox' },
+        { id: 2, url: 'https://mail.example.com/#sent' },
+      ]),
+    ).toEqual([])
   })
   it('preferuje aktivní a připnutý panel', () => {
     expect(
