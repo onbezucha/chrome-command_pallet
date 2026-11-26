@@ -51,7 +51,7 @@ Everything runs locally. No backend, no telemetry. The only optional network acc
 
 4. Pin Trail: click the puzzle-piece icon in the toolbar and pin **Trail**. Clicking the toolbar icon opens the Command Bar.
 
-> You need Chrome **121 or newer**.
+> You need Chrome **121 or newer** to run the extension and Node.js **22.12+** (or 24+) to build it (`.nvmrc` pins 24).
 
 ### Live development
 
@@ -65,7 +65,7 @@ Starts Vite on `http://localhost:5173` with hot module replacement. After changi
 
 ## Usage guide
 
-Press the command bar shortcut anywhere in a normal web page. A floating search dialog appears over the page, focused and ready to type.
+Press the command bar shortcut (default `Alt + K`, i.e. `Option + K` on a Mac) anywhere in a normal web page. A floating search dialog appears over the page, focused and ready to type.
 
 - Type to fuzzy-search **open tabs**, **bookmarks**, **history** (last 30 days, up to 200 entries) and **commands**.
 - Use **↑ / ↓** to move, **Enter** to open, **Esc** to close.
@@ -80,6 +80,7 @@ Prefix filters let you restrict the search to one source:
 | `@panely` | `@panel`, `@tabs`, `@tab` | Open tabs |
 | `@záložky` | `@bookmark`, `@bookmarks` | Bookmarks |
 | `@historie` | `@history` | History |
+| `@zavřené` | `@closed`, `@recent` | Recently closed tabs |
 | `@příkazy` | `@action`, `@actions` | Commands |
 
 Typing a prefix switches to that filter automatically; the filter chips above the results can also be clicked directly, and **Tab** cycles through them.
@@ -88,7 +89,9 @@ Typing a prefix switches to that filter automatically; the filter chips above th
 
 ## Keyboard shortcuts
 
-Default binding (rebindable in `chrome://extensions/shortcuts`): `Alt + K` opens or closes the Command Bar. Clicking the toolbar icon does the same.
+Default binding: `Alt + K` (`Option + K` on a Mac) opens or closes the Command Bar. Clicking the toolbar icon does the same.
+
+To use a different shortcut (for example `Cmd + K`), open `chrome://extensions/shortcuts` and set it for **Trail**. Chrome refuses combinations it reserves for itself, and the field stays empty if another extension already owns the shortcut.
 
 While the Command Bar is open:
 
@@ -123,9 +126,11 @@ Built-in commands (find them with `@příkazy` / `@actions`):
 
 **Settings page:** sources, history window and size, behaviour (selected text pre-fill, clipboard URL, switch to an already open tab), VAT and currency, live rates, custom search engines. Stored in `chrome.storage.local`.
 
-**Ranking rules:** tabs rank above bookmarks, bookmarks above history, history above commands. Within a group, results are scored by fuzzy match quality; history entries get a recency boost for the last 30 days. Tabs and bookmarks from all open windows are searchable, and the comparison ignores diacritics (`@prikazy` finds „Nový panel“).
+**Ranking rules:** results are grouped as tabs, bookmarks, recently closed tabs, history, commands. Within a group they are scored by fuzzy match quality, with small bonuses for recent use (decays over about a week), for frequent visits (history) and for a match at the start of the title. Tabs from all open windows are searchable, and matching ignores diacritics (`@prikazy` works like `@příkazy`). History that is already open as a tab, bookmark or closed tab is not shown twice.
 
-**Performance:** bookmarks and history are cached in `chrome.storage.session` and refreshed in the background, while tabs are always read live, so the dialog paints immediately.
+**Duplicates:** „Close duplicate tabs“ and „switch to the already open tab“ compare URLs ignoring a trailing slash only; the `#hash` counts, because single-page apps use it to tell pages apart.
+
+**Performance:** bookmarks and history are cached in `chrome.storage.session`. A stale cache is shown immediately and refreshed in the background (it is also warmed on browser start), while tabs are always read live, so the dialog paints without waiting.
 
 ---
 
@@ -201,4 +206,4 @@ src/
 
 ## License
 
-See [LICENSE](LICENSE).
+No license has been chosen yet; until one is added, all rights are reserved.

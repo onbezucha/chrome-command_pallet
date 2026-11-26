@@ -17,6 +17,15 @@ All notable changes to Trail are documented here.
 - The single shortcut is `Alt+K`; the toolbar icon opens the Command Bar.
 - The manifest and the popup use localized strings from `public/_locales`.
 
+### Fixed
+
+- Command Bar opened late after a pause (the whole history was reloaded first) and sometimes did not take focus until a click: stale cache is now served immediately, the cache is warmed on startup, and the input retries focusing.
+- Concurrent session writes (opening × cache refresh) could overwrite each other; `invoker` and `cache` now use separate keys, and a storage quota error no longer breaks the index.
+- „Close duplicate tabs“ treated different `#hash` routes as duplicates.
+- Calculator: `-2^2` now gives −4; `1,000.50` and `1.000,50` are accepted.
+- File names such as `README.md` are searched instead of opened as URLs; words like `facade` are no longer shown as colours.
+- Selection could point past the end of the list after closing a tab; `Alt+↵` on a recently closed tab now opens it in the background.
+
 ### Removed
 
 - Sidebar (`sidePanel`), favorites, pinned tabs, JSON export/import, Quick Window and their shortcuts and permission (`sidePanel`).
